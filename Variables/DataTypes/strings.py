@@ -19,3 +19,7 @@ string4 = "'Thanks'"
 
 print(string3)
 print(string4)
+
+## we can use f-strings, formatted strings to print stuff as well
+x = 10
+print(f"The number is {x}")
