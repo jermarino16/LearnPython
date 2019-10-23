@@ -7,6 +7,10 @@ string2 = 'hi there'
 print(string1)
 print(string2)
 
+#string concatenation
+string5 = string1 + " " + string2
+print(string5)
+
 #whatever you use throughout the file be consistent
 
 #you can use these to make strings with these quotes
