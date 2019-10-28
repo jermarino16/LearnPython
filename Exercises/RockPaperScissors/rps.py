@@ -23,35 +23,30 @@ its_a_draw = False
 #ensure use actually chose rock, paper or scissors
 
 if (player1_choice == "rock" or player1_choice == "paper" or player1_choice == "scissors") and (player2_choice == "rock" or player2_choice == "paper" or player2_choice == "scissors"):
-	##player 1 chooses rock
-	if player1_choice == "rock":
-		#player2 choices
-		#rock is a draw
-		if player2_choice == "rock":
-			its_a_draw = True
-		#scissors is a win	
-		elif player2_choice == "scissors":
-			player1_win = True
+	#check for a draw
+	if player1_choice == player2_choice:
+		its_a_draw = True
+	else:	
+		##player 1 chooses rock
+		if player1_choice == "rock":
+			#player2 choices
+			#scissors is a win	
+			if player2_choice == "scissors":
+				player1_win = True
 
-	##player 1 chooses paper
-	elif player1_choice == "paper":
-		#player 2 choices
-		#paper is a draw
-		if player2_choice == "paper":
-			its_a_draw = True
-		#rock is a win	
-		elif player2_choice == "rock":
-			player1_win = True
+		##player 1 chooses paper
+		elif player1_choice == "paper":
+			#player 2 choices
+			#rock is a win	
+			if player2_choice == "rock":
+				player1_win = True
 
-	##player 1  chooses scissors
-	else:
-		#player 2 choice
-		#scissors is a draw
-		if player2_choice == "scissors":
-			its_a_draw = True
-		#paper is a win for player 1
-		elif player2_choice == "paper":
-			player1_win = True
+		##player 1  chooses scissors
+		else:
+			#player 2 choice
+			#paper is a win for player 1
+			if player2_choice == "paper":
+				player1_win = True
 
 	#evaluate if it's a draw or print out winners
 	if not its_a_draw:
