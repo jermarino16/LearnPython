@@ -1,20 +1,27 @@
+#import random module
+import random
+
 print("...rock...")
 print("...paper...")
 print("...scissors...")
 
-#user input
+#user input for player 1
 print("Enter player 1's choice: ")
 player1_choice = input()
 
-#loop to print
-count = 0
-print("No cheating!")
-while count < 80:
-	print("NO CHEATING!")
-	count += 1
+#print buffer
+print("***NO CHEATING!***\n" * 80)
 
-print("Enter player 2's choice: ")
-player2_choice = input()
+#get a random choice for player 2
+random_number = random.randint(0, 2)
+if random_number == 0:
+	player2_choice = "rock"
+elif random_number == 1:
+	player2_choice = "paper"
+else:
+	player2_choice = "scissors"
+#print computer choice	
+print(f"Player 2 has chosen {player2_choice}")
 
 #player1 wins set to false
 player1_win = False
