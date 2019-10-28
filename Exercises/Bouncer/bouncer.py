@@ -1,8 +1,9 @@
 #this program will simulate a bouncer
 
 #ask for age
-print("What is your name")
-age = input()
+print("What is your age")
+age = int(input())
+
 
 #check for 21 +
 if (age >= 21):
@@ -11,5 +12,5 @@ if (age >= 21):
 elif (age >= 18 and age < 21):
 	print("Come in, but no drinks for you")
 #check for < 18
-else
+else:
 	print("You can't come in baby")
