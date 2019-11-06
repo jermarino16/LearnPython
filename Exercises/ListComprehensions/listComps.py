@@ -25,3 +25,7 @@ print(f"The intersection is: {intersection}")
 backwards_names = [(person[::-1].lower()) for person in names]
 print(f"\nOur names list is: {names} ")
 print(f"The backwards list is: {backwards_names} ")
+
+#make a nested listed
+nested_list = [[num for num in range(0,3)] for num1 in range (0,3)]
+print(f"\nThe nested list is: {nested_list} ")
