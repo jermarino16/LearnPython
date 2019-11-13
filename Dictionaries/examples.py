@@ -22,4 +22,12 @@ for keys in instructor.keys():
 
 print ("\nThe items of instrcutor are: ")
 for key, value in instructor.items():
-	print(f"The key is {key}, The value is {value})
+	print(f"The key is {key}, The value is {value}")
+
+#test if instructor has certain keys
+if "name" in instructor:
+	print("\nYes name is a key in instructor")
+
+#test for values
+if 25 in instructor.values(): 
+	print("yes 25 is one of the values of instructors")
