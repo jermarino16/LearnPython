@@ -1,0 +1,1 @@
+cube = lambda num: num*num*num
