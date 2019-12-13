@@ -1,4 +1,6 @@
 import card
+import random 
+
 
 class Deck:
 
@@ -20,28 +22,25 @@ class Deck:
 
 	def deal(self, num_to_deal):
 		cards_to_deal = []
-		if num_to_deal == 1:
-			return self.cards.pop(0)
+		if num_to_deal <= self.count():
+			if num_to_deal == 1:
+				return self.cards.pop(0)
+			else:
+				for x in range (0, num_to_deal):
+					cards_to_deal.append(self.cards.pop(0))
+				return cards_to_deal
 		else:
-			for x in range (0, num_to_deal):
-				cards_to_deal.append(self.cards.pop(0))
-			return cards_to_deal
+			raise ValueError("You want to deal more than the deck has")
 
-new_deck = Deck()
-
-print(new_deck.count)
-my_hand = new_deck.deal(5)
-print(new_deck.count)
-print(my_hand)
-	# 	#decrement from total cards in deck
-	# 	#if fewer cards in deck then requested only do that many.
-	# 	#if none are left raise valueerror
-
-	# def shuffle(self):
-	# 	#mix up the cards, but only full decks can be shuffled, raise ValueError if not full
-
+	def shuffle(self):
+		random.shuffle(cards) 
 	# def deal_card(self):
 	# 	#returns a single card and uses deal method.
 
 	# def deal_hand(self):
 	# 	#accepts a number and uses the deal method to deal a list of cards
+new_deck = Deck()
+
+my_hand = new_deck.deal(5)
+print(my_hand)
+	
