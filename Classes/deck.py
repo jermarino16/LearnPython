@@ -15,7 +15,7 @@ class Deck:
 
 	def __repr__(self):
 	#return how many cards are in the deck
-		return f"The Deck has {len(self.cards)} cards"
+		return f"The Deck has {self.count()} cards"
 
 	def count(self):
 		return len(self.cards)
