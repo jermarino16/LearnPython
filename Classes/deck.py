@@ -34,13 +34,14 @@ class Deck:
 
 	def shuffle(self):
 		random.shuffle(cards) 
-	# def deal_card(self):
-	# 	#returns a single card and uses deal method.
 
-	# def deal_hand(self):
-	# 	#accepts a number and uses the deal method to deal a list of cards
+	def deal_card(self):
+		return self.deal(1)
+
+	def deal_hand(self, num_to_deal):
+		return self.deal(num_to_deal)
 new_deck = Deck()
 
-my_hand = new_deck.deal(5)
+my_hand = new_deck.deal_card()
 print(my_hand)
 	
