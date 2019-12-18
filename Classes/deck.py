@@ -12,6 +12,8 @@ class Deck:
 			for value in values:
 				self.cards.append(card.Card(value, suit))
 
+	def __iter__(self):
+		return iter(self.cards)
 
 	def __repr__(self):
 	#return how many cards are in the deck
@@ -44,4 +46,6 @@ new_deck = Deck()
 
 my_hand = new_deck.deal_card()
 print(my_hand)
-	
+
+for card in new_deck:
+	print(card)
