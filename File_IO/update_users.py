@@ -9,7 +9,9 @@ def update_users(old_first, old_last, new_first, new_last):
     with open("users.csv", "w") as csvfile:
         csv_writer = csv.writer(csvfile)
         for row in rows:
+            print(row)
             if row[0] == old_first and row[1] == old_last:
+                print(row[0])
                 csv_writer.writerow([new_first, new_last])
                 count += 1
             else:
