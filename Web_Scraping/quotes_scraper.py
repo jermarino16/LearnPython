@@ -46,7 +46,7 @@ def scrape_single_page():
 		# print(quote_information)
 
 		#add this quote to a list of the quotes
-		list_of_quotes.append(quote_information)
+		list_of_quotes.append(list.copy(quote_information))
 		
 
 
