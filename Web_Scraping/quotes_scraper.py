@@ -131,6 +131,7 @@ def play_game():
 			user_guess = input("\nWho said it? ")
 			if user_guess == random_quote_author:
 				print("\nWow Good Job!")
+				break
 			else:
 				give_hint(random_quote)
 
