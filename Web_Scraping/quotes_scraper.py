@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from csv import writer
+import csv
 import requests
 from random import choice
 
@@ -109,6 +109,11 @@ def give_hint(quote_information):
 	else:
 		print("Sorry no more hints")
 
+def write_rows_to_csv():
+	with open ("quotes.csv", "w", newline="") as csv_file:
+		writer = csv.writer(csv_file)
+		writer.writerows(list_of_quotes)
+
 def play_game():
 	#now time to loop through a game
 	user_wants_to_play = True
@@ -145,11 +150,9 @@ def play_game():
 #scrape at least once
 first_scrape()
 keep_scraping()
+write_rows_to_csv()
 # print(list_of_quotes)
 play_game()
-
-
-
 print("Awesome thanks for playing!")
 
 
