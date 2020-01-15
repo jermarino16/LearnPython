@@ -86,12 +86,13 @@ def give_hint(quote_information):
 	global hint_count
 	author_full_name = quote_information[1].split()
 	author_href = quote_information[2]
+	num_of_names = len(author_full_name)
+
 	if hint_count == 0:
 		get_author_birth_info(author_href)
 		hint_count += 1
 
 	elif hint_count == 1:
-		num_of_names = len(author_full_name)
 		print("The author's first name starts with a " + author_full_name[0][0])
 		hint_count += 1
 
@@ -104,34 +105,51 @@ def give_hint(quote_information):
 			print("The author has a middle name")
 		else:
 			print("The author does not have a middle name")
+			hint_count += 1
 	else:
 		print("Sorry no more hints")
 
+def play_game():
+	#now time to loop through a game
+	user_wants_to_play = True
+	user_is_wrong = True
+	global hint_count
+	while user_wants_to_play:
+		hint_count = 0 
+		random_quote = get_random_quote()
+		random_quote_text = random_quote[0]
+		random_quote_author = random_quote[1]
+		random_quote_url = random_quote[2]
+
+		# print(random_quote_author)
+
+		print("Alright Here's a quote")
+		print(random_quote_text)
+
+		#user gets 5 tries to guess it
+		for x in range(0,5):
+			user_guess = input("\nWho said it? ")
+			if user_guess == random_quote_author:
+				print("\nWow Good Job!")
+			else:
+				give_hint(random_quote)
+
+		print("\nThe author's name is " + random_quote_author)
+
+		play_again = input("Do you want to play again? Type n for no: ")
+		if play_again == "n":
+			user_wants_to_play = False
+		else:
+			print("Okay let's go again!\n")	
 #scrape at least once
 first_scrape()
 keep_scraping()
 # print(list_of_quotes)
+play_game()
 
-random_quote = get_random_quote()
-random_quote_text = random_quote[0]
-random_quote_author = random_quote[1]
-random_quote_url = random_quote[2]
 
-# print(random_quote_author)
 
-#now time to loop through a game
-user_wants_to_play = True
-# while user_wants_to_play:
-print("Alright Here's a quote")
-print(random_quote_text)
-user_guess = input("Who said it? ")
-if user_guess == random_quote_author:
-	print("\nWow Good Job!")
-else:
-	give_hint(random_quote)
-
-print("The author's name is " + random_quote_author)
-
+print("Awesome thanks for playing!")
 
 
 	
