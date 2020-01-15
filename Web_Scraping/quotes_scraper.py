@@ -9,6 +9,7 @@ quotes = ""
 default_url = "http://quotes.toscrape.com"
 current_url = ""
 list_of_quotes = []
+hint_count = 0
 
 #get url and quotes info
 def get_info_from_url(url=default_url):
@@ -70,14 +71,66 @@ def keep_scraping():
 		scrape_more_pages(current_url)
 		next_tag = soup.find("li", class_="next")
 
+def get_random_quote():
+	return choice(list_of_quotes)
+
+def get_author_birth_info(author_bio_url):
+	get_info_from_url(default_url + author_bio_url)
+	# print(default_url + author_bio_url)
+	author_birth_date = soup.find("span", class_="author-born-date").get_text()
+	author_birth_location = soup.find("span", class_="author-born-location").get_text()
+	print("The author was born on " + author_birth_date)
+	print("The author was born " + author_birth_location)
+
+def give_hint(quote_information):
+	global hint_count
+	author_full_name = quote_information[1].split()
+	author_href = quote_information[2]
+	if hint_count == 0:
+		get_author_birth_info(author_href)
+		hint_count += 1
+
+	elif hint_count == 1:
+		num_of_names = len(author_full_name)
+		print("The author's first name starts with a " + author_full_name[0][0])
+		hint_count += 1
+
+	elif hint_count == 2:
+		print("The author's last name starts with a " + author_full_name[num_of_names -1 ][0])
+		hint_count += 1
+
+	elif hint_count == 3:
+		if num_of_names == 3:
+			print("The author has a middle name")
+		else:
+			print("The author does not have a middle name")
+	else:
+		print("Sorry no more hints")
+
 #scrape at least once
 first_scrape()
 keep_scraping()
 # print(list_of_quotes)
 
-print(choice(list_of_quotes))
+random_quote = get_random_quote()
+random_quote_text = random_quote[0]
+random_quote_author = random_quote[1]
+random_quote_url = random_quote[2]
 
-## right now there are 10 quotes in one list. whhyyy
+# print(random_quote_author)
+
+#now time to loop through a game
+user_wants_to_play = True
+# while user_wants_to_play:
+print("Alright Here's a quote")
+print(random_quote_text)
+user_guess = input("Who said it? ")
+if user_guess == random_quote_author:
+	print("\nWow Good Job!")
+else:
+	give_hint(random_quote)
+
+print("The author's name is " + random_quote_author)
 
 
 
