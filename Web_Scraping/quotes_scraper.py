@@ -111,7 +111,9 @@ def give_hint(quote_information):
 
 def write_rows_to_csv():
 	with open ("quotes.csv", "w", newline="") as csv_file:
+		headers = ["Quote", "Author", "Bio_link"]
 		writer = csv.writer(csv_file)
+		writer.writerow(headers)
 		writer.writerows(list_of_quotes)
 
 def play_game():
